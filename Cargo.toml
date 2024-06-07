@@ -1,0 +1,29 @@
+[workspace]
+resolver = "2"
+members = ["crates/libs/demo"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[workspace.lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "warn"
+needless_return = "warn"
+unwrap_used = "deny"
+expect_used = "deny"
+clone_on_ref_ptr = "forbid"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.dependencies]
+# -- Async
+tokio = { version = "1.37.0", features = ["full"] }
+futures-util = "0.3.30"
+# -- JSON
+serde = { version = "1.0.202", features = ["derive"] }
+serde_json = "1.0.117"
+serde_with = { version = "3.8.1", features = ["chrono"] }
+# -- Error
+thiserror = "1.0.60"
